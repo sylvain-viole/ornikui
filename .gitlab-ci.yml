@@ -1,0 +1,44 @@
+stages:
+  - build
+  - test
+  - report
+
+workflow:
+  rules:
+    - when: always
+
+before_script:
+  - pwd
+  - source bin/cicd-variables.sh
+
+###################################
+# build
+###################################
+
+install:
+  image: cypress/base:10
+  stage: build
+
+  script:
+    - npm ci
+    - $(npm bin)/cypress cache path
+    - $(npm bin)/cypress cache list
+    - $(npm bin)/cypress verify
+
+
+
+###################################
+# test
+###################################
+
+e2e:
+  image: cypress/base:10
+  stage: test
+  script:
+    - $(npm bin)/cypress run
+  artifacts:
+    expire_in: 1 week
+    when: always
+    paths:
+    - /allure-report
+    - /allure-results
