@@ -4,7 +4,8 @@
   "description": "Automation Technical Test on ornikar",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:prod:open": "cypress open --e2e --browser chrome"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://gitlab.com/sylvainviole/ornikui/issues"
   },
-  "homepage": "https://gitlab.com/sylvainviole/ornikui#readme"
+  "homepage": "https://gitlab.com/sylvainviole/ornikui#readme",
+  "devDependencies": {
+    "cypress": "^10.7.0"
+  }
 }
