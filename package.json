@@ -1,0 +1,19 @@
+{
+  "name": "ornikui",
+  "version": "1.0.0",
+  "description": "Automation Technical Test on ornikar",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/sylvainviole/ornikui.git"
+  },
+  "author": "Sylvain Viole",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/sylvainviole/ornikui/issues"
+  },
+  "homepage": "https://gitlab.com/sylvainviole/ornikui#readme"
+}
