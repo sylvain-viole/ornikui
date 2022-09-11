@@ -1,0 +1,25 @@
+name: TESTS
+
+on:
+  push:
+    branches: [main]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: install
+        run: npm install
+
+      - name: verify
+        run: |
+          ./node_modules/.bin/cypress verify
+          ./node_modules/.bin/cypress info
+
+      - name: test on chrome
+        run: npm run cy:chrome:run
