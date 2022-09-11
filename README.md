@@ -19,6 +19,13 @@ This project uses :
 
 ### Reporting
 If you want to use Allure reporter make sure you have it [installed locally](https://docs.qameta.io/allure-report/gettingstarted/quickstart)
+- Launch a test run with `npm run cy:chrome:open`
+- After the run execute `allure serve` to dsiplay a report
+
+![image](https://user-images.githubusercontent.com/71819292/189543825-61d0087d-8806-40f9-a7a7-04b904730e6f.png)
+
+![image](https://user-images.githubusercontent.com/71819292/189543862-83d33ed6-83cd-472e-9755-f19e806b7521.png)
+
 
 ## Architecture / Design Pattern
 
