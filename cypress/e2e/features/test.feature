@@ -1,24 +1,10 @@
-#env
-@dev @mt_local @testing @qa @prod
+Feature: As a visitor I can request a quote
 
-#language
-@fr @en
-
-#device
-@desktop @mobile
-
-#product
-@app
-
-#api_scope
-
-#feature
-@userAccount
-
-
-
-Feature: [001] As a visitor I can request a quote
-
-    @critically_medium
     Scenario: [001] Visitor fills informations
-        Given a visitor
+        Given a visitor eligible to a quote
+        When the visitor gives informations about his vehicle
+        And the visitor gives informations about the primary driver
+        And the visitor gives informations about the contract
+        And the visitor reviews his informations
+        And the visitor requests a quote
+        Then the visitor receives quotes

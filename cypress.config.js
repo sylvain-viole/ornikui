@@ -16,6 +16,7 @@ module.exports = defineConfig({
   chromeWebSecurity: false,
   pageLoadTimeout: 60000,
   defaultCommandTimeout: 12000,
+  requestTimeout: 30000,
   retries: {
     runMode: 2,
     openMode: 1,
