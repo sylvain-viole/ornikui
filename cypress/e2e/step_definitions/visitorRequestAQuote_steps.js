@@ -9,9 +9,17 @@ const dynamicDatas = new DynamicDatas();
 let persona;
 let expected;
 
-Given("a visitor eligible to a quote", () => {
-  persona = datas.personas.eligibletoQuote;
-  expected = datas.expected.eligibletoQuote;
+Given("a visitor {} to a quote", (eligibility) => {
+  switch (eligibility) {
+    case "eligible":
+      persona = datas.personas.eligibletoQuote;
+      expected = datas.expected.eligibletoQuote;
+      break;
+    case "not eligible":
+      persona = datas.personas.notEligibletoQuote;
+      expected = datas.expected.notEligibletoQuote;
+      break;
+  }
   cy.session("refuseCookies", () => {
     const homePage = new HomePage();
     cy.visit("/");
@@ -47,10 +55,14 @@ When("the visitor gives informations about the primary driver", () => {
     .fillsDriverMaritalStatus(persona.primary)
     .clicksContinue()
     .fillsDriverAlreadyInsured(persona.primary)
-    .clicksContinue()
-    .fillsDriverBonusMalus(persona.primary)
-    .fillsDriverInfractionsCount(persona.primary)
-    .clicksContinue()
+    .clicksContinue();
+  if (persona?.tunnel?.askForBonusMalus) {
+    visitor
+      .fillsDriverBonusMalus(persona.primary)
+      .fillsDriverInfractionsCount(persona.primary)
+      .clicksContinue();
+  }
+  visitor
     .fillsDeclareSecondaryDriver(persona.declareSecondaryDriver)
     .clicksContinue()
     .fillsLendingVehicle(persona.lendingVehicle)
@@ -70,9 +82,7 @@ When("the visitor reviews his informations", () => {
     .context.answers;
   console.log(localStorageAnswers);
   for (const [key, value] of Object.entries(localStorageAnswers)) {
-    expect(value).to.eql(
-      datas.expected.eligibletoQuote.localStorageAnswer[`${key}`]
-    );
+    expect(value).to.eql(expected[`${key}`]);
   }
   cy.contains("Pour résumer").should("be.visible");
 });
@@ -89,4 +99,14 @@ Then("the visitor receives quotes", () => {
   expect(dynamicDatas.response.statusCode).to.eql(200);
   expect(dynamicDatas.response.body.formules.length).to.eql(3);
   cy.contains("prenez soin de vous").should("be.visible");
+});
+
+Then("the visitor does not receive a quote", () => {
+  expect(dynamicDatas.response.statusCode).to.eql(200);
+  expect(dynamicDatas.response.body.error.code).to.eql(
+    "INTERNAL_ORNIKAR_ERROR"
+  );
+  cy.contains("Malheureusement, nous ne pouvons pas vous assurer").should(
+    "be.visible"
+  );
 });
