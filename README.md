@@ -27,6 +27,37 @@ If you want to use Allure reporter make sure you have it [installed locally](htt
 ![image](https://user-images.githubusercontent.com/71819292/189543862-83d33ed6-83cd-472e-9755-f19e806b7521.png)
 
 
+## Tests
+
+2 scenarios here :
+
+```gherkin
+Feature: As an eligible visitor I can receive a quote
+
+    Scenario: [001] eligible visitor requests a quote
+        Given a visitor eligible to a quote
+        When the visitor gives informations about his vehicle
+        And the visitor gives informations about the primary driver
+        And the visitor gives informations about the contract
+        And the visitor reviews his informations
+        And the visitor requests a quote
+        Then the visitor receives quotes
+     
+     
+Feature: As an not eligible visitor I cannot receive a quote
+
+    Scenario: [002] not eligible visitor requests a quote
+        Given a visitor not eligible to a quote
+        When the visitor gives informations about his vehicle
+        And the visitor gives informations about the primary driver
+        And the visitor gives informations about the contract
+        And the visitor reviews his informations
+        And the visitor requests a quote
+        Then the visitor does not receive a quote
+ 
+ ```
+
+
 ## Architecture / Design Pattern
 
 ### 🔗 BDD :
