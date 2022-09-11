@@ -1,6 +1,7 @@
 node_modules
 .vscode
 output
+.DS_store
 
 # allure
 /allure-report

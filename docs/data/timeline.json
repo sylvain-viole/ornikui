@@ -1,0 +1,83 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "name" : "timeline",
+  "children" : [ {
+    "name" : "[001] eligible visitor requests a quote",
+    "uid" : "8ac1c5daec61933",
+    "parentUid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+    "status" : "failed",
+    "time" : {
+      "start" : 1662916272259,
+      "stop" : 1662916287676,
+      "duration" : 15417
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[001] eligible visitor requests a quote",
+    "uid" : "d418a9bb916114b4",
+    "parentUid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+    "status" : "failed",
+    "time" : {
+      "start" : 1662916367482,
+      "stop" : 1662916382691,
+      "duration" : 15209
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[001] eligible visitor requests a quote",
+    "uid" : "3212c601b376ba23",
+    "parentUid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+    "status" : "failed",
+    "time" : {
+      "start" : 1662916121178,
+      "stop" : 1662916144411,
+      "duration" : 23233
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[001] eligible visitor requests a quote",
+    "uid" : "1c47dd4b63ed31b9",
+    "parentUid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+    "status" : "failed",
+    "time" : {
+      "start" : 1662916408836,
+      "stop" : 1662916423721,
+      "duration" : 14885
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[002] not eligible visitor requests a quote",
+    "uid" : "9f9abbefc0bbd318",
+    "parentUid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+    "status" : "passed",
+    "time" : {
+      "start" : 1662916643608,
+      "stop" : 1662916659848,
+      "duration" : 16240
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "[001] eligible visitor requests a quote",
+    "uid" : "4e0c17fb8694cce2",
+    "parentUid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+    "status" : "passed",
+    "time" : {
+      "start" : 1662916446867,
+      "stop" : 1662916469751,
+      "duration" : 22884
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  } ]
+}
