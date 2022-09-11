@@ -82,7 +82,7 @@ When("the visitor reviews his informations", () => {
     .context.answers;
   console.log(localStorageAnswers);
   for (const [key, value] of Object.entries(localStorageAnswers)) {
-    expect(value).to.eql(expected[`${key}`]);
+    expect(value).to.eql(expected.localStorageAnswers[`${key}`]);
   }
   cy.contains("Pour résumer").should("be.visible");
 });
