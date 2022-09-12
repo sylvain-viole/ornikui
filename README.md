@@ -71,6 +71,28 @@ This makes the step files readable.
 - `Action methods` call `locators` and interact with them.
 This is a `PAGE OBJECT` with an extra layer of abstraction to keep step files readable.
 
+```javascript
+When("the visitor gives informations about his vehicle", () => {
+  cy.clearLocalStorage();
+  const homePage = new HomePage();
+  visitor
+    .visits(homePage)
+    .startsQuotingTunnel()
+    .searchesByBrand(persona.vehicle)
+    .fillsVehicleBuyDate(persona.vehicle)
+    .fillsVehicleBuyMean(persona.vehicle)
+    .fillsVehicleIsAlreadyInsured(persona.vehicle)
+    .clicksContinue()
+    .fillsVehicleUsage(persona.vehicle)
+    .fillsVehicleParkingLocation(persona.vehicle)
+    .fillsVehicleParkingZipCode(persona.vehicle)
+    .fillsVehicleParkingCity(persona.vehicle)
+    .clicksContinue()
+    .fillsWichNameOnGreyCard(persona.vehicle)
+    .clicksContinue();
+});
+```
+
 ### 🧩 Data management
 Scenario uses `Personas` which is a data object that centralize all data inputs and expected outputs. Makes it simpler to maintain.
 
